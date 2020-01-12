@@ -251,7 +251,7 @@ function create_fragment(ctx) {
       attr_dev(li0, "class", "mr-6");
       add_location(li0, file, 34, 4, 993);
       attr_dev(a1, "rel", "prefetch");
-      attr_dev(a1, "href", "/blog/hello-world");
+      attr_dev(a1, "href", "blog/hello-world");
       attr_dev(a1, "class", "hover:text-red");
       add_location(a1, file, 36, 6, 1047);
       attr_dev(li1, "class", "mr-6");
