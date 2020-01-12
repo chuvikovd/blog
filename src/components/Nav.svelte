@@ -6,7 +6,7 @@
 
 <div
   class={`w-full md:w-5/12 relative flex-col justify-center transition-padding ${segment ? 'pt-4' : 'pt-10 md:pt-24'}`}>
-  <a href="/">
+  <a href=".">
     <h1 class="inline-block font-display text-4xl font-bold whitespace-no-wrap">
       chuva
       <span class="text-red -ml-5">.dev</span>
@@ -34,7 +34,7 @@
     {/each}
     <li class="mr-6">|</li>
     <li class="mr-6">
-      <a rel="prefetch" href="/blog/hello-world" class="hover:text-red">About</a>
+      <a rel="prefetch" href="blog/hello-world" class="hover:text-red">About</a>
     </li>
   </ul>
 </nav>
