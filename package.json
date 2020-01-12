@@ -10,7 +10,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "deploy": "NODE_ENV=production yarn export && gh-pages -d __sapper__/export/chuvikovd"
+    "deploy": "set NODE_ENV=production && yarn export && gh-pages -d __sapper__/export/chuvikovd"
   },
   "dependencies": {
     "clsx": "^1.0.4",
