@@ -1,0 +1,6 @@
+@import 'tailwind';
+@import 'prismjs/themes/prism';
+
+@import 'main';
+@import 'transitions';
+@import 'markdown';

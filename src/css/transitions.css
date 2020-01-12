@@ -1,0 +1,27 @@
+.transition-height {
+  transition: height 0.25s ease-in-out;
+}
+
+.transition-padding {
+  transition: padding 0.2s ease-in-out;
+}
+
+.transition-button:after {
+  transform: translate(10px, 10px);
+  transition: transform 0.25s ease-in-out;
+  z-index: -1;
+}
+
+.transition-button:hover:after {
+  transform: translate(0, 0);
+}
+
+.transition-mode:after {
+  z-index: -1;
+  transform: translate(36px, 5px);
+  transition: transform 0.25s ease-in-out;
+}
+
+.transition-mode.active:after {
+  transform: translate(5px, 5px);
+}

@@ -1,0 +1,96 @@
+.markdown {
+  @apply leading-normal break-words;
+}
+
+.markdown > * + * {
+  @apply mt-0 mb-4;
+}
+
+.markdown li + li {
+  @apply mt-1;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown a {
+  @apply font-semibold inline-block relative z-10;
+}
+
+.markdown a:after {
+  @apply empty-content absolute inset-x-0 bottom-0 bg-cyan h-1 -z-1;
+  transition: height 0.25s ease-in-out;
+}
+
+.markdown a:hover:after {
+  @apply h-3;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.markdown h1 {
+  @apply leading-tight text-4xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h2 {
+  @apply leading-tight text-2xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h3 {
+  @apply leading-snug text-lg font-semibold mb-4 mt-6;
+}
+
+.markdown h4 {
+  @apply leading-none text-base font-semibold mb-4 mt-6;
+}
+
+.markdown h5 {
+  @apply leading-tight text-sm font-semibold mb-4 mt-6;
+}
+
+.markdown h6 {
+  @apply leading-tight text-sm font-semibold text-darkGray mb-4 mt-6;
+}
+
+.markdown blockquote {
+  @apply text-base border-l-4 border-gray pl-4 pr-4 text-darkGray;
+}
+
+.markdown code {
+  @apply font-display text-sm text-black inline bg-lightGray rounded px-1 py-05;
+}
+
+.markdown pre {
+  @apply bg-lightGray rounded p-4;
+}
+
+.markdown pre code {
+  @apply block bg-transparent p-0 overflow-visible rounded-none;
+}
+
+.markdown ul {
+  @apply text-base pl-8 list-disc;
+}
+
+.markdown ol {
+  @apply text-base pl-8 list-decimal;
+}
+
+.markdown table {
+  @apply text-base border-darkGray;
+}
+
+.markdown th {
+  @apply border border-darkGray py-1 px-3;
+}
+
+.markdown td {
+  @apply border border-darkGray py-1 px-3;
+}
