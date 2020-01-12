@@ -1,7 +1,7 @@
 const atImport = require('postcss-import')
 const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/**/*.html', './src/**/*.svelte'],
+  content: ['./src/**/*.html', './src/**/*.svelte', './src/**/*.css'],
 
   whitelistPatterns: [/svelte-/],
 
