@@ -3,13 +3,27 @@
 
   export let post
 
-  const { categories, title, excerpt, printDate, slug, printReadingTime } = post
+  const {
+    categories,
+    title,
+    excerpt,
+    printCreated,
+    slug,
+    printReadingTime,
+  } = post
+
+  console.log(excerpt)
 </script>
 
 <article class="w-full mt-8 first:mt-0">
   <h4 class="font-display font-bold">
-    {#each categories as category}
-      <a rel="prefetch" href={`blog/category/${category}`} class="hover:text-red">{category}</a>
+    {#each categories as category, i}
+      <a
+        rel="prefetch"
+        href={`blog/category/${category}`}
+        class="hover:text-red">
+        {category}{i !== categories.length - 1 ? ', ' : ''}
+      </a>
     {/each}
   </h4>
   <a rel="prefetch" href="blog/{slug}">
@@ -18,9 +32,11 @@
       {title}
     </h2>
   </a>
-  <h5 class="font-display font-light mt-1">{printDate}, {printReadingTime}</h5>
-  <p class="mt-4">
-    {excerpt}
-  </p>
+  <h5 class="font-display font-light mt-1">
+    {printCreated}, {printReadingTime}
+  </h5>
+  <div class="mt-6 markdown">
+    {@html excerpt}
+  </div>
   <ReadMoreButton href="blog/{slug}" />
 </article>

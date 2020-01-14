@@ -23,28 +23,39 @@
     dayValue = value
   })
 
-  const { categories, title, printDate, printReadingTime } = post
+  const {
+    categories,
+    title,
+    description,
+    printCreated,
+    printReadingTime,
+  } = post
 </script>
 
 <svelte:head>
   <title>{post.title}</title>
+  {#if description}
+    <meta name="description" content={description} />
+  {/if}
 </svelte:head>
 
 <div class="w-full mt-8">
   <h4 class="font-display font-bold">
-    {#each categories as category}
+    {#each categories as category, i}
       <a
         rel="prefetch"
         href={`blog/category/${category}`}
         class="hover:text-red">
-        {category}
+        {category}{i !== categories.length - 1 ? ', ' : ''}
       </a>
     {/each}
   </h4>
   <h1 class="font-display font-bold text-4xl">{title}</h1>
-  <h5 class="font-display font-light mt-1">{printDate}, {printReadingTime}</h5>
+  <h5 class="font-display font-light mt-1">
+    {printCreated}, {printReadingTime}
+  </h5>
 </div>
 
-<div class={clsx('w-full markdown', { night: !dayValue })}>
+<div class={clsx('w-full mt-6 markdown', { night: !dayValue })}>
   {@html post.html}
 </div>
