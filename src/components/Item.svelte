@@ -11,8 +11,6 @@
     slug,
     printReadingTime,
   } = post
-
-  console.log(excerpt)
 </script>
 
 <article class="w-full mt-8 first:mt-0">
