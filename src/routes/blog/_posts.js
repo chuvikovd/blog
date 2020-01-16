@@ -25,7 +25,7 @@ renderer.link = (href, title, text) => {
     )
   }
 
-  return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ')
+  return html.replace(/^<a /, '<a target="_blank" rel="nofollow" class="link" ')
 }
 
 renderer.code = (code, language) => {
@@ -61,15 +61,10 @@ const posts = fs
     }
 
     const html = marked.parse(content.replace(EXCERPT_SEPARATOR, ''))
-    const readingStats = readingTime(content)
-    const printReadingTime = readingStats.text
-
-    const dateFormat = 'MMMM d, yyyy'
-    const printCreated = formatDate(new Date(created), dateFormat)
-    const printUpdated = formatDate(new Date(created), dateFormat)
+    const time = readingTime(content).text
 
     return {
-      title: title || slug,
+      title,
       description,
       slug,
       html,
@@ -77,9 +72,7 @@ const posts = fs
       updated,
       excerpt,
       categories,
-      printCreated,
-      printUpdated,
-      printReadingTime,
+      time,
     }
   })
 

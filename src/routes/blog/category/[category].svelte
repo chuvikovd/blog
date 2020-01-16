@@ -1,10 +1,10 @@
 <script context="module">
   export async function preload({ params, query }) {
     const res = await this.fetch(`blog/category/${params.category}.json`)
-    const data = await res.json()
+    const posts = await res.json()
 
     if (res.status === 200) {
-      return { posts: data }
+      return { posts, category: params.category }
     } else {
       this.error(res.status, data.message)
     }
@@ -12,17 +12,17 @@
 </script>
 
 <script>
-  import Item from '../../../components/Item.svelte'
+  import PostHeader from '../../../components/PostHeader.svelte'
 
-  export let posts
+  export let posts, category
 </script>
 
 <svelte:head>
-  <title>Blog</title>
+  <title>Blog - {category} | chuva.dev</title>
 </svelte:head>
 
 <div class="w-full mt-8 pb-8">
   {#each posts as post}
-    <Item {post} />
+    <PostHeader {post} />
   {/each}
 </div>

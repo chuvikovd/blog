@@ -7,7 +7,7 @@
 </script>
 
 <script>
-  import Item from '../components/Item.svelte'
+  import PostHeader from '../components/PostHeader.svelte'
 
   export let posts
 </script>
@@ -18,6 +18,6 @@
 
 <div class="w-full mt-8 pb-8">
   {#each posts as post}
-    <Item {post} />
+    <PostHeader {post} />
   {/each}
 </div>

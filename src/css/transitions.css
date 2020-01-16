@@ -9,7 +9,6 @@
 .transition-button:after {
   transform: translate(10px, 10px);
   transition: transform 0.25s ease-in-out;
-  z-index: -1;
 }
 
 .transition-button:hover:after {
@@ -17,11 +16,10 @@
 }
 
 .transition-mode:after {
-  z-index: -1;
-  transform: translate(36px, 5px);
+  transform: translate(36px, 8px);
   transition: transform 0.25s ease-in-out;
 }
 
 .transition-mode.active:after {
-  transform: translate(5px, 5px);
+  transform: translate(8px, 8px);
 }

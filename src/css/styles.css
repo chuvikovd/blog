@@ -1,6 +1,6 @@
 @import 'tailwind';
 /* purgecss start ignore */
-@import 'prismjs/themes/prism';
+@import 'prism-themes/themes/prism-material-dark';
 /* purgecss end ignore */
 @import 'main';
 @import 'transitions';

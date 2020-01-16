@@ -3,9 +3,11 @@ const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')({
   content: ['./src/**/*.html', './src/**/*.svelte', './src/**/*.css'],
   whitelistPatterns: [/svelte-/],
+  whitelistPatternsChildren: [/transition-/],
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 })
 const autoprefixer = require('autoprefixer')
+const postcssExtendRule = require('postcss-extend-rule')
 
 module.exports = {
   plugins: [

@@ -18,19 +18,6 @@
   @apply font-semibold;
 }
 
-.markdown a {
-  @apply font-semibold inline-block relative z-10;
-}
-
-.markdown a:after {
-  @apply empty-content absolute inset-x-0 bottom-0 bg-cyan h-1 -z-1;
-  transition: height 0.25s ease-in-out;
-}
-
-.markdown a:hover:after {
-  @apply h-3;
-}
-
 .markdown strong a {
   @apply font-bold;
 }
@@ -64,15 +51,19 @@
 }
 
 .markdown code {
-  @apply font-display text-sm text-black inline bg-lightGray rounded px-1 py-05;
+  @apply font-display text-sm rounded;
 }
 
 .markdown pre {
-  @apply bg-lightGray rounded p-4;
+  @apply rounded;
 }
 
-.markdown pre code {
-  @apply block bg-transparent p-0 overflow-visible rounded-none;
+.markdown code:not([class^="language-"]) {
+  @apply bg-lightGray rounded px-1 py-05;
+}
+
+.markdown.night code:not([class^="language-"]) {
+  @apply text-black;
 }
 
 .markdown ul {

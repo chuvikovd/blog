@@ -2,10 +2,11 @@
 title: Creating static blog with Sapper, TailwindCSS and Github pages
 description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages
 created: '2020-01-13T20:33:22.846Z'
+updated: '2020-01-16T18:08:37.291Z'
 categories: ['Svelte', 'Sapper']
 ---
 
-Static websites became very popular lasy years. Tools like [GatsbyJS](https://www.gatsbyjs.org/) and [Jekyll](https://jekyllrb.com/) exist for some time. However, I decided to try something different and kinda underground - recently released [Svelte 3](https://svelte.dev) with  [Sapper](https://sapper.svelte.dev).
+Static websites became very popular lasy years. Tools like [GatsbyJS](https://www.gatsbyjs.org/) and [Jekyll](https://jekyllrb.com/) exist for some time. However, I decided to try something different and kinda underground - recently released [Svelte 3](https://svelte.dev) with [Sapper](https://sapper.svelte.dev).
 
 <!-- more -->
 
@@ -36,7 +37,8 @@ This tutorial will be splitted into following parts:
 1. Project scaffolding and adding support for `markdown` and syntax highlight to content
 2. Styling with `Taildwind` and `PostCSS`
 3. Adding categories for blog posts
-4. Deploying to Github pages
+4. Testing
+5. Deploying to Github pages
 
 ## Getting started
 
@@ -165,7 +167,7 @@ posts.sort((a, b) => {
 })
 
 posts.forEach(post => {
-	post.html = post.html.replace(/^\t{3}/gm, '')
+  post.html = post.html.replace(/^\t{3}/gm, '')
 })
 
 export default posts
@@ -240,4 +242,3 @@ Thats it for now. You can view the whole project at this point [here](https://gi
 ## Credits
 
 https://github.com/Charca/sapper-blog-template/ - inspiration for markdown renderer
-
