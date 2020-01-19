@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const exportPath = path.resolve(process.cwd(), '__sapper__/export/blog')
+const exportPath = path.resolve(process.cwd(), '__sapper__/export')
 
 try {
   fs.renameSync(

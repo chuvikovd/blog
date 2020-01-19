@@ -6,14 +6,14 @@
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "build:prod": "cross-env NODE_ENV=production sapper build --legacy",
-    "export": "sapper export --basepath blog --legacy --entry \"/ /404\" && yarn fix404",
-    "export:prod": "cross-env NODE_ENV=production sapper export --basepath blog --legacy --entry \"/ /404\" && yarn fix404",
+    "export": "sapper export --legacy --entry \"/ /404\" && yarn fix404",
+    "export:prod": "cross-env NODE_ENV=production sapper export --legacy --entry \"/ /404\" && yarn fix404",
     "fix404": "node scripts/fix404.js",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "deploy": "cross-env NODE_ENV=production yarn export && gh-pages -d __sapper__/export/blog"
+    "deploy": "cross-env NODE_ENV=production yarn export && gh-pages -d __sapper__/export"
   },
   "dependencies": {
     "compression": "^1.7.1",
