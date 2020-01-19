@@ -11,6 +11,7 @@
   import ModeSwitch from '../components/ModeSwitch.svelte'
   import Tailwindcss from '../components/Tailwindcss.svelte'
   import Copyright from '../components/Copyright.svelte'
+  import GoogleAnalytics from '../components/GoogleAnalytics.svelte'
   import { day } from '../store.js'
 
   export let segment, categories
@@ -20,7 +21,31 @@
   const unsubscribe = day.subscribe(value => {
     dayValue = value
   })
+
+  const prod = process.env.NODE_ENV === 'production'
 </script>
+
+<svelte:head>
+  {#if prod}
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-156495800-1">
+
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-156495800-1')
+    </script>
+  {/if}
+</svelte:head>
+{#if prod}
+  <GoogleAnalytics />
+{/if}
 
 <Tailwindcss />
 
