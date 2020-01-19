@@ -2,7 +2,7 @@
 title: Creating static blog with Sapper, TailwindCSS and Github pages
 description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages
 created: '2020-01-13T20:33:22.846Z'
-updated: '2020-01-16T18:08:37.291Z'
+updated: '2020-01-19T12:53:10.490Z'
 categories: ['Svelte', 'Sapper']
 ---
 
@@ -158,8 +158,8 @@ const posts = fs
   })
 
 posts.sort((a, b) => {
-  const dateA = new Date(a.date)
-  const dateB = new Date(b.date)
+  const dateA = new Date(a.created)
+  const dateB = new Date(b.created)
 
   if (dateA > dateB) return -1
   if (dateA < dateB) return 1
@@ -182,6 +182,21 @@ Then goes the part with code renderer which uses `prismjs` to parse and highligh
 After that, at line `129` we define our `posts` array. [gray-mater](https://www.npmjs.com/package/gray-matter) allows our markdown files to contain meta information for our posts, like title, description, creation date and other whatever you want. I am sure you can understand what info I am storing with my posts.
 
 Last, we sort posts by date and exporting them.
+
+We also need to modify `src/routes/blog/index.json.js` posts mapping, to include added post information:
+
+```js
+const contents = JSON.stringify(
+  posts.map(post => {
+    return {
+      title: post.title,
+      slug: post.slug,
+      created: post.created,
+      excerpt: post.excerpt,
+    }
+  })
+)
+```
 
 Next file we need to modify is `rollup.config.js`. Add this line somewhere at the top with other imports:
 

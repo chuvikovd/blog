@@ -15,13 +15,13 @@ const linkRenderer = renderer.link
 renderer.link = (href, title, text) => {
   const html = linkRenderer.call(renderer, href, title, text)
 
-  if (href.indexOf('/') === 0) {
-    return html
+  if (href.indexOf('/') === 0 || href.indexOf('.') === 0) {
+    return html.replace(/^<a /, '<a class="link" ')
   } else if (href.indexOf('#') === 0) {
     const html = linkRenderer.call(renderer, 'javascript:;', title, text)
     return html.replace(
       /^<a /,
-      `<a onclick="document.location.hash='${href.substr(1)}';" `
+      `<a onclick="document.location.hash='${href.substr(1)}';" class="link" `
     )
   }
 
