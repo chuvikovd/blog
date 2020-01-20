@@ -2,7 +2,7 @@
   import format from 'date-fns/format'
   import ReadMoreButton from './ReadMoreButton.svelte'
 
-  export let post, opened
+  export let post, opened = false
 </script>
 
 <article class="w-full mt-8 first:mt-0">
@@ -10,7 +10,7 @@
     {#each post.categories as category, i}
       <a
         rel="prefetch"
-        href={`blog/category/${category}`}
+        href={`blog/categories/${category}`}
         class="hover:text-red">
         {category}{i !== post.categories.length - 1 ? ', ' : ''}
       </a>

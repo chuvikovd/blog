@@ -15,6 +15,7 @@
   import format from 'date-fns/format'
   import PostHeader from '../../components/PostHeader.svelte'
   import { day } from '../../store.js'
+  import { getTitle } from '../../utils.js'
 
   export let post
 
@@ -26,7 +27,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.title} | chuva.dev</title>
+  <title>{getTitle(post.title)}</title>
   {#if post.description}
     <meta name="description" content={post.description} />
   {/if}

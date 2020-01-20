@@ -8,12 +8,13 @@
 
 <script>
   import PostHeader from '../../components/PostHeader.svelte'
+  import { getTitle } from '../../utils.js'
 
   export let posts
 </script>
 
 <svelte:head>
-  <title>Blog</title>
+  <title>{getTitle('Blog')}</title>
 </svelte:head>
 
 <div class="w-full mt-8 pb-8">

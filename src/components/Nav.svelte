@@ -1,7 +1,5 @@
 <script>
-  export let segment, categories
-
-  const sortedCategories = categories.sort()
+  export let segment
 </script>
 
 <div
@@ -20,21 +18,36 @@
   {/if}
 </div>
 <nav
-  class={`w-full border-b transition-padding ${segment ? 'mt-4 pb-4' : 'mt-8 pb-8'}`}>
-  <ul class="list-none flex text-sm font-display">
-    {#each sortedCategories as category}
-      <li class="mr-6">
-        <a
-          rel="prefetch"
-          href={`blog/category/${category}`}
-          class="hover:text-red">
-          {category}
-        </a>
-      </li>
-    {/each}
-    <li class="mr-6">|</li>
+  class={`w-full flex flex-wrap justify-between border-b transition-padding ${segment ? 'mt-4 pb-2' : 'mt-8 pb-2'}`}>
+  <ul class="list-none flex text-sm font-display transition-padding pb-2">
+    <li class="mr-6">
+      <a rel="prefetch" href="blog" class="hover:text-red">Blog</a>
+    </li>
+    <li class="mr-6">
+      <a rel="prefetch" href="blog/categories" class="hover:text-red">
+        Categories
+      </a>
+    </li>
     <li class="mr-6">
       <a rel="prefetch" href="blog/hello-world" class="hover:text-red">About</a>
+    </li>
+  </ul>
+  <ul class="list-none flex text-sm font-display transition-padding pb-2">
+    <li class="mr-6">
+      <a
+        class="hover:text-red"
+        href="https://github.com/chuvikovd/"
+        target="_blank">
+        Github
+      </a>
+    </li>
+    <li>
+      <a
+        class="hover:text-red"
+        href="https://www.linkedin.com/in/chuvikovd/"
+        target="_blank">
+        LinkedIn
+      </a>
     </li>
   </ul>
 </nav>

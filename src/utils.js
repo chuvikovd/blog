@@ -8,3 +8,5 @@ export const mapPosts = posts =>
     updated,
     time,
   }))
+
+export const getTitle = text => `${text} | chuva.dev`
