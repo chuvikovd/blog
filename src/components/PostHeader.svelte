@@ -1,8 +1,15 @@
 <script>
   import format from 'date-fns/format'
   import ReadMoreButton from './ReadMoreButton.svelte'
+  import { day } from '../store.js'
 
   export let post, opened = false
+
+  let dayValue
+
+  const unsubscribe = day.subscribe(value => {
+    dayValue = value
+  })
 </script>
 
 <article class="w-full mt-8 first:mt-0">
@@ -37,7 +44,7 @@
     {post.time}
   </h5>
   {#if !opened}
-    <div class="mt-6 markdown">
+    <div class="mt-6 markdown" class:night={!dayValue}>
       {@html post.excerpt}
     </div>
     <ReadMoreButton href="blog/{post.slug}" />
