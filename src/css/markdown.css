@@ -2,6 +2,10 @@
   @apply leading-normal break-words;
 }
 
+.markdown > *:first-child {
+  @apply mt-0 mb-4;
+}
+
 .markdown > * + * {
   @apply mt-0 mb-4;
 }
