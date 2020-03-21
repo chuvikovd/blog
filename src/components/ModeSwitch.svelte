@@ -1,17 +1,11 @@
 <script>
   import { day } from '../store.js'
 
-  let dayValue
-
-  const unsubscribe = day.subscribe(value => {
-    dayValue = value
-  })
-
   const toggle = () => day.update(day => !day)
 </script>
 
 <div
-  class:active={dayValue}
+  class:active={$day}
   class="flex p-5 absolute top-0 right-0 z-10 after:empty-content after:absolute
   after:bg-cyan after:w-6 after:h-6 after:-z-1 cursor-pointer transition-mode"
   on:click={toggle}>

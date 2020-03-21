@@ -2,11 +2,6 @@
   import { day } from '../store.js'
 
   export let href
-  let dayValue
-
-  const unsubscribe = day.subscribe(value => {
-    dayValue = value
-  })
 
   const toggle = () => day.update(day => !day)
 </script>

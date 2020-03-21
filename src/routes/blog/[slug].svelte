@@ -18,12 +18,6 @@
   import { getTitle } from '../../utils.js'
 
   export let post
-
-  let dayValue
-
-  const unsubscribe = day.subscribe(value => {
-    dayValue = value
-  })
 </script>
 
 <svelte:head>
@@ -35,6 +29,6 @@
 
 <PostHeader {post} opened="true" />
 
-<div class="w-full mt-6 markdown" class:night={!dayValue}>
+<div class="w-full mt-6 markdown" class:night={!$day}>
   {@html post.html}
 </div>

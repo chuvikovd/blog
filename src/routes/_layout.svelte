@@ -8,12 +8,6 @@
 
   export let segment
 
-  let dayValue
-
-  const unsubscribe = day.subscribe(value => {
-    dayValue = value
-  })
-
   const prod = process.env.NODE_ENV === 'production'
 </script>
 
@@ -41,7 +35,7 @@
 
 <Tailwindcss />
 
-<main class={`min-h-screen ${dayValue ? '' : 'bg-black text-white'}`}>
+<main class={`min-h-screen ${$day ? '' : 'bg-black text-white'}`}>
   <div class="container relative max-w-5xl m-auto flex flex-wrap px-4 pb-8">
     <ModeSwitch />
     <Nav {segment} />
