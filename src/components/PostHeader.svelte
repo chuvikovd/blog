@@ -1,9 +1,10 @@
 <script>
   import format from 'date-fns/format'
-  import ReadMoreButton from './ReadMoreButton.svelte'
+  import Button from './Button.svelte'
   import { day } from '../store.js'
 
-  export let post, opened = false
+  export let post,
+    opened = false
 </script>
 
 <article class="w-full mt-8 first:mt-0">
@@ -18,19 +19,19 @@
     {/each}
   </h4>
   {#if opened}
-    <h2 class="font-display text-3xl md:text-4xl font-bold leading-tight">
+    <h2 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-1">
       {post.title}
     </h2>
   {:else}
     <a rel="prefetch" href="blog/{post.slug}">
       <h2
         class="font-display text-3xl md:text-4xl font-bold text-red
-        leading-tight">
+        leading-tight mb-1">
         {post.title}
       </h2>
     </a>
   {/if}
-  <h5 class="font-display font-light mt-1">
+  <h5 class="font-display font-light">
     {format(new Date(post.created), 'MMMM d, yyyy')},
     {#if post.updated}
       updated {format(new Date(post.updated), 'MMMM d, yyyy')},
@@ -41,6 +42,6 @@
     <div class="mt-6 markdown" class:night={!$day}>
       {@html post.excerpt}
     </div>
-    <ReadMoreButton href="blog/{post.slug}" />
+    <Button href="blog/{post.slug}">Continue reading</Button>
   {/if}
 </article>
