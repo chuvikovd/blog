@@ -2,9 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const marked = require('marked')
 const matter = require('gray-matter')
-const formatDate = require('date-fns/format')
 const readingTime = require('reading-time')
-const prism = require('prismjs')
+const hljs = require('highlight.js')
 
 const cwd = process.cwd()
 const POSTS_DIR = path.join(cwd, 'src/routes/blog/posts/')
@@ -28,18 +27,17 @@ renderer.link = (href, title, text) => {
   return html.replace(/^<a /, '<a target="_blank" rel="nofollow" class="link" ')
 }
 
-renderer.code = (code, language) => {
-  const parser = prism.languages[language] || prism.languages.html
-  const highlighted = prism.highlight(code, parser, language)
-  return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
-}
+renderer.code = (code, language) =>
+  `<pre><code class="hljs language-${language}">${
+    hljs.highlight(language, code).value
+  }</code></pre>`
 
 marked.setOptions({
   renderer,
   highlight: function(code, lang) {
     try {
-      return prismjs.highlight(code, prismjs.languages[lang], lang)
-    } catch {
+      return hljs.highlight(lang, code).value
+    } catch (e) {
       return code
     }
   },

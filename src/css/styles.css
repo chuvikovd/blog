@@ -1,6 +1,6 @@
 @import 'tailwind';
 /* purgecss start ignore */
-@import 'prism-themes/themes/prism-material-dark';
+@import 'highlight.js/styles/ocean';
 /* purgecss end ignore */
 @import 'main';
 @import 'transitions';

@@ -1,6 +1,6 @@
 ---
 title: Creating static blog with Sapper, TailwindCSS and Github pages - Part 2
-description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages
+description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages - styling
 created: '2020-01-16T20:53:00.485Z'
 categories: ['Svelte', 'Sapper', 'TailwindCSS']
 ---
@@ -27,7 +27,7 @@ to create Tailwind config file. This step is optional as Tailwind provides defau
 
 For now, `tailwind.config.js` s empty:
 
-```js
+```javascript
 module.exports = {
   theme: {
     extend: {}
@@ -43,7 +43,7 @@ We will leave it for now.
 
 For Tailwind we also need `PostCSS`. We are going to use with following plugins too - `autoprefixer` and `postcss-import`. We are going to configure them now. Create a file `postcss.config.js`:
 
-```js
+```javascript
 const atImport = require('postcss-import')
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
@@ -59,7 +59,7 @@ module.exports = {
 
 Now, open `rollup.config.js` and add following lines:
 
-```js
+```javascript
 import sveltePreprocess from 'svelte-preprocess'
 
 const preprocess = sveltePreprocess({ postcss: true })
@@ -67,7 +67,7 @@ const preprocess = sveltePreprocess({ postcss: true })
 
 modify following code block in `client`:
 
-```js
+```javascript
 // before
 svelte({
   dev,
@@ -86,7 +86,7 @@ svelte({
 
 and in `server`:
 
-```js
+```javascript
 // before
 svelte({
   generate: 'ssr',
@@ -121,7 +121,7 @@ Now, we can remove other `<style ` blocks in all components.
 
 First, we will modify existing `Nav.svelte` component, and create another two - `Item.svelte` and `Copyright.svelte`:
 
-```js
+```html
 // src/components/Nav.svelte
 
 <script>
@@ -180,7 +180,7 @@ First, we will modify existing `Nav.svelte` component, and create another two - 
 </div>
 ```
 
-```js
+```html
 // src/components/Item.svelte
 <script>
   import format from "date-fns/format";
@@ -201,7 +201,7 @@ First, we will modify existing `Nav.svelte` component, and create another two - 
 </a>
 ```
 
-```js
+```html
 // src.components/Copyright.svelte
 
 <div class="border-t border-black py-4 text-center text-gray-600">
@@ -211,7 +211,7 @@ First, we will modify existing `Nav.svelte` component, and create another two - 
 
 And then, modify `src/routes/_layout.svelte`. Add:
 
-```js
+```html
 import Copyright from "../components/Copyright.svelte";
 ```
 
@@ -229,7 +229,7 @@ to `<script ` part, and change template part:
 
 Next, we will style `index` page. I want to display 3 latest blog posts here, so, we will create file `src/routes/blog/latest.json.js` with following content:
 
-```js
+```javascript
 import posts from "./_posts.js";
 
 const contents = JSON.stringify(
@@ -256,7 +256,7 @@ This is copy-paste from `src/routes/blog/index.json.js` with just one change - w
 
 Now, modify `src/routes/index.svelte`:
 
-```js
+```html
 <script context="module">
   export function preload({ params, query }) {
     return this.fetch(`blog/latest.json`)
@@ -301,7 +301,7 @@ Now, modify `src/routes/index.svelte`:
 
 Then, modify `src/routes/blog/index.svelte`. Remove everything after `<script context="module"` block, and paste:
 
-```js
+```html
 <script>
   import Item from "../../components/Item.svelte";
 
@@ -321,7 +321,7 @@ Then, modify `src/routes/blog/index.svelte`. Remove everything after `<script co
 
 And finally, modify `src/routes/blog/[slug].svelte` template part:
 
-```js
+```html
 <h1 class="text-5xl mt-4 mb-6 font-bold">{post.title}</h1>
 
 <div class='markdown'>
@@ -459,7 +459,7 @@ yarn add -D purgecss
 
 and modify `postcss.config.js`:
 
-```js
+```javascript
 const atImport = require('postcss-import')
 const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')({

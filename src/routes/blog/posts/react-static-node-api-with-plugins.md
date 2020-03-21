@@ -21,7 +21,7 @@ If you are using plugins that modify `Webpack` loader configuration, for example
 
 For me the solution looks like this:
 
-```js
+```javascript
 export default pluginOptions => ({
   webpack: (config, { defaultLoaders }) => {
     const svgLoader = config.module.rules[0].oneOf[0]

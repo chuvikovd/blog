@@ -56,18 +56,13 @@
 
 .markdown code {
   @apply font-display text-sm rounded;
+  background: #2b303b;
+  color: #c0c5ce;
+  padding: 0 0.3rem;
 }
 
 .markdown pre {
   @apply rounded;
-}
-
-.markdown code:not([class^="language-"]) {
-  @apply bg-lightGray rounded px-1 py-05;
-}
-
-.markdown.night code:not([class^="language-"]) {
-  @apply text-black;
 }
 
 .markdown ul {

@@ -1,6 +1,6 @@
 ---
 title: Creating static blog with Sapper, TailwindCSS and Github pages
-description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages
+description: How to create static blog with Svelte 3, Sapper, TailwindCSS and deploy Github pages - introduction
 created: '2020-01-13T20:33:22.846Z'
 updated: '2020-01-19T12:53:10.490Z'
 categories: ['Svelte', 'Sapper']
@@ -58,8 +58,8 @@ cd sapper-blog-tutorial/ && yarn
 
 For now, as we can see in `src/routes/blog/_posts.js`, our blog posts are just an array:
 
-```js
-// srt/routes/blog/_posts.js
+```javascript
+// src/routes/blog/_posts.js
 
 const posts = [
 	{
@@ -78,7 +78,7 @@ yarn add marked prismjs gray-matter reading-time
 
 Then, replace `src/routes/blog/_posts.js` file content with:
 
-```js
+```javascript
 // src/routes/blog/_posts.js
 
 const fs = require('fs')
@@ -185,7 +185,7 @@ Last, we sort posts by date and exporting them.
 
 We also need to modify `src/routes/blog/index.json.js` posts mapping, to include added post information:
 
-```js
+```javascript
 const contents = JSON.stringify(
   posts.map(post => {
     return {
@@ -200,13 +200,13 @@ const contents = JSON.stringify(
 
 Next file we need to modify is `rollup.config.js`. Add this line somewhere at the top with other imports:
 
-```js
+```javascript
 import marked from 'marked'
 ```
 
 Then, before `export default ...` add:
 
-```js
+```javascript
 const markdown = () => ({
   transform(md, id) {
     if (!/\.md$/.test(id)) return null
@@ -220,7 +220,7 @@ const markdown = () => ({
 
 And finally, in `server` part of the exported config, after `commonjs(),` add:
 
-```js
+```javascript
 markdown(),
 ```
 
