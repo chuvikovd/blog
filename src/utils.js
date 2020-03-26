@@ -1,4 +1,4 @@
-export const mapPosts = posts =>
+export const mapPosts = (posts) =>
   posts.map(({ title, excerpt, slug, categories, created, updated, time }) => ({
     title,
     excerpt,
@@ -9,4 +9,4 @@ export const mapPosts = posts =>
     time,
   }))
 
-export const getTitle = text => `${text} | chuva.dev`
+export const getTitle = (text) => `${text} | chuva.dev`

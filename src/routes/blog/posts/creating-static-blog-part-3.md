@@ -12,10 +12,10 @@ This is the third part of the [tutorial series](./blog/creating-static-blog) abo
 First of all, let's create pagination component:
 
 ```html
-// src/components/Pagination.svelte
+<!-- src/components/Pagination.svelte -->
 
 <script>
-  export let prevLink =null, nextLink =null
+  export let prevLink = null, nextLink = null
 </script>
 
 {#if prevLink || nextLink}

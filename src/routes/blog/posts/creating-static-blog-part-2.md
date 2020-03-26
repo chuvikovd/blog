@@ -122,7 +122,7 @@ Now, we can remove other `<style ` blocks in all components.
 First, we will modify existing `Nav.svelte` component, and create another two - `Item.svelte` and `Copyright.svelte`:
 
 ```html
-// src/components/Nav.svelte
+<!-- src/components/Nav.svelte -->
 
 <script>
   export let segment;
@@ -181,7 +181,8 @@ First, we will modify existing `Nav.svelte` component, and create another two - 
 ```
 
 ```html
-// src/components/Item.svelte
+<!-- src/components/Item.svelte -->
+
 <script>
   import format from "date-fns/format";
 
@@ -202,7 +203,7 @@ First, we will modify existing `Nav.svelte` component, and create another two - 
 ```
 
 ```html
-// src.components/Copyright.svelte
+<!-- src.components/Copyright.svelte -->
 
 <div class="border-t border-black py-4 text-center text-gray-600">
   © 2020 by Blog. All rights reserved.

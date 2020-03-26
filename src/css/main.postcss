@@ -1,0 +1,21 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.link {
+  @apply font-semibold inline-block truncate max-w-full align-bottom relative z-10;
+
+  &:after {
+    @apply empty-content absolute inset-x-0 bottom-0 bg-cyan h-1 -z-1;
+    transition: height 0.25s ease-in-out;
+  }
+
+  &:hover {
+    &:after {
+      @apply h-3;
+    }
+  }
+}

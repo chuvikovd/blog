@@ -1,0 +1,90 @@
+.markdown {
+  @apply leading-normal break-words;
+
+  & > *:first-child {
+    @apply mt-0 mb-4;
+  }
+
+  & > * + * {
+    @apply mt-0 mb-4;
+  }
+
+  & ul {
+    @apply text-base pl-8 list-disc;
+  }
+
+  & ol {
+    @apply text-base pl-8 list-decimal;
+  }
+
+  & li {
+    & + li {
+      @apply mt-1;
+    }
+
+    & > p {
+      & + p {
+        @apply mt-6;
+      }
+    }
+  }
+
+  & strong {
+    @apply font-semibold;
+
+    & a {
+      @apply font-bold;
+    }
+  }
+
+  & h1 {
+    @apply leading-tight text-4xl font-semibold mb-4 mt-6 pb-2;
+  }
+
+  & h2 {
+    @apply leading-tight text-2xl font-semibold mb-4 mt-6 pb-2;
+  }
+
+  & h3 {
+    @apply leading-snug text-lg font-semibold mb-4 mt-6;
+  }
+
+  & h4 {
+    @apply leading-none text-base font-semibold mb-4 mt-6;
+  }
+
+  & h5 {
+    @apply leading-tight text-sm font-semibold mb-4 mt-6;
+  }
+
+  & h6 {
+    @apply leading-tight text-sm font-semibold text-darkGray mb-4 mt-6;
+  }
+
+  & blockquote {
+    @apply text-base border-l-4 border-gray pl-4 pr-4 text-darkGray;
+  }
+
+  & code {
+    @apply font-display text-sm rounded;
+    background: #2b303b;
+    color: #c0c5ce;
+    padding: 0 0.3rem;
+  }
+
+  & pre {
+    @apply rounded;
+  }
+
+  & table {
+    @apply text-base border-darkGray;
+  }
+
+  & th {
+    @apply border border-darkGray py-1 px-3;
+  }
+
+  & td {
+    @apply border border-darkGray py-1 px-3;
+  }
+}
